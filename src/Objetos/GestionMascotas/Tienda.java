@@ -16,7 +16,8 @@ public class Tienda {
         this.listaClientes = new ArrayList<>();
         this.listaCompras = new ArrayList<>();
     }
-    public void annadirCliente (String nombre){
+
+    public void annadirCliente(String nombre) {
         Cliente cliente = new Cliente(nombre);
         listaClientes.add(cliente);
     }
@@ -24,17 +25,18 @@ public class Tienda {
     public List<Mascota> getListaMascotas() {
         return listaMascotas;
     }
+
     public List<Mascota> getListaMascotasDisponibles() {
         return listaMascotas.stream().filter(Mascota::isDisponible).toList();
     }
 
-    public void annadirMascota (String nombre, Especie especie, int edad, double precio, boolean disponible){
-        Mascota mascota = new Mascota(nombre,especie,edad,precio,disponible);
+    public void annadirMascota(String nombre, Especie especie, int edad, double precio, boolean disponible) {
+        Mascota mascota = new Mascota(nombre, especie, edad, precio, disponible);
         listaMascotas.add(mascota);
     }
 
-    public void comprarMascota (Cliente cliente, Mascota mascota){
-        Compra compra = new Compra(cliente,mascota);
+    public void comprarMascota(Cliente cliente, Mascota mascota) {
+        Compra compra = new Compra(cliente, mascota);
         listaCompras.add(compra);
         mascota.setDisponible(false);
 
@@ -42,5 +44,23 @@ public class Tienda {
 
     public List<Cliente> getListaClientes() {
         return listaClientes;
+    }
+
+    public void devolverMascota() {
+
+
+    }
+
+    public List<Compra> listarCompraDeCliente(Cliente cliente) {
+
+        return listaCompras.stream().filter(compra -> {
+            return compra.getCliente().equals(cliente) && compra.getFechaDevolucion() == null;
+        }).toList();
+    }
+
+    public void verificarDevolucion (Compra compra){
+        compra.marcarDevuelta();
+        compra.getMascota().setDisponible(true);
+
     }
 }

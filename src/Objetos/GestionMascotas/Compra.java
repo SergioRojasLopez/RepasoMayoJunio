@@ -30,4 +30,29 @@ public class Compra {
     public LocalDateTime getFechaHora() {
         return fechaHora;
     }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public Mascota getMascota() {
+        return mascota;
+    }
+
+    public void marcarDevuelta (){
+        this.fechaDevolucion = LocalDateTime.now();
+
+    }
+
+
+    @Override
+    public String toString() {
+        return "Compra{" +
+                "id=" + id +
+                ", cliente=" + cliente +
+                ", mascota=" + mascota +
+                ", fechaHora=" + fechaHora +
+                ", fechaDevolucion=" + fechaDevolucion +
+                '}';
+    }
 }

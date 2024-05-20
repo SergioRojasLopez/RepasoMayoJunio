@@ -7,8 +7,12 @@ public class Main {
 
     public static void main(String[] args) {
 
-        addCliente();
+
         addMascota();
+        addMascota();
+        addCliente();
+        addCompra();
+        devolucion();
 
 
     }
@@ -33,6 +37,13 @@ public class Main {
         Cliente c = MiEntradaSalida.leerEnum("Seleccione el cliente",clientes.toArray(Cliente[]::new));
         Mascota m = MiEntradaSalida.leerEnum("Seleccione la mascota",mascotas.toArray(Mascota[]::new));
         tienda.comprarMascota(c,m);
+
+    }
+    public static void devolucion (){
+        List<Cliente> clientes = tienda.getListaClientes();
+        Cliente c = MiEntradaSalida.leerEnum("Seleccione el cliente",clientes.toArray(Cliente[]::new));
+        List<Compra> compras = tienda.listarCompraDeCliente(c);
+        Compra compra = MiEntradaSalida.leerEnum("Selecciona la compra",compras.toArray(Compra[]::new));
 
     }
 }

@@ -39,4 +39,15 @@ public class Mascota {
     public double getPrecio() {
         return precio;
     }
+
+    @Override
+    public String toString() {
+        return "Mascota{" +
+                "nombre='" + nombre + '\'' +
+                ", especie=" + especie +
+                ", edad=" + edad +
+                ", precio=" + precio +
+                ", disponible=" + disponible +
+                '}';
+    }
 }
