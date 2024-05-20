@@ -8,6 +8,7 @@ public class Compra {
     private Cliente cliente;
     private Mascota mascota;
     private LocalDateTime fechaHora;
+    private LocalDateTime fechaDevolucion;
 
     private static int contCompras = 1;
 
@@ -16,5 +17,17 @@ public class Compra {
         this.cliente = cliente;
         this.mascota = mascota;
         this.fechaHora = LocalDateTime.now();
+    }
+
+    public LocalDateTime getFechaDevolucion() {
+        return fechaDevolucion;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public LocalDateTime getFechaHora() {
+        return fechaHora;
     }
 }

@@ -20,7 +20,15 @@ public class Tienda {
         Cliente cliente = new Cliente(nombre);
         listaClientes.add(cliente);
     }
-    public void annadirMascota (String nombre, Especie especie, int edad, double precio,boolean disponible){
+
+    public List<Mascota> getListaMascotas() {
+        return listaMascotas;
+    }
+    public List<Mascota> getListaMascotasDisponibles() {
+        return listaMascotas.stream().filter(Mascota::isDisponible).toList();
+    }
+
+    public void annadirMascota (String nombre, Especie especie, int edad, double precio, boolean disponible){
         Mascota mascota = new Mascota(nombre,especie,edad,precio,disponible);
         listaMascotas.add(mascota);
     }
@@ -28,6 +36,8 @@ public class Tienda {
     public void comprarMascota (Cliente cliente, Mascota mascota){
         Compra compra = new Compra(cliente,mascota);
         listaCompras.add(compra);
+        mascota.setDisponible(false);
+
     }
 
     public List<Cliente> getListaClientes() {
