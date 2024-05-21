@@ -46,11 +46,6 @@ public class Tienda {
         return listaClientes;
     }
 
-    public void devolverMascota() {
-
-
-    }
-
     public List<Compra> listarCompraDeCliente(Cliente cliente) {
 
         return listaCompras.stream().filter(compra -> {
