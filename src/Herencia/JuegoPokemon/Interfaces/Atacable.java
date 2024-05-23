@@ -6,5 +6,5 @@ import Herencia.JuegoPokemon.Model.Pokemon;
 
 public interface Atacable {
 
-    public void serAtacado(Pokemon pokemon, WeatherCondition weatherCondition)throws MuerteException;
+     void serAtacado(Pokemon pokemon, WeatherCondition weatherCondition,int ataque)throws MuerteException;
 }

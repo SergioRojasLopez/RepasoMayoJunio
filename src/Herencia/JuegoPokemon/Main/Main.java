@@ -3,13 +3,15 @@ package Herencia.JuegoPokemon.Main;
 import Herencia.JuegoPokemon.Enum.WeatherCondition;
 import Herencia.JuegoPokemon.Exception.MuerteException;
 import Herencia.JuegoPokemon.Exception.RoundStartException;
+import Herencia.JuegoPokemon.Exception.ValorNoValidoException;
 import Herencia.JuegoPokemon.Interfaces.Atacable;
 import Herencia.JuegoPokemon.Model.Pokemon;
+import Herencia.JuegoPokemon.Model.PokemonAgua;
 import Herencia.JuegoPokemon.Utils.UserDataCollector;
 
 import java.util.ArrayList;
 
-public class Main {
+public class    Main {
     public static void main(String[] args) {
         Pokemon[] pokemons = new Pokemon[6];
         for (int i = 0; i < pokemons.length; i++) {
@@ -163,7 +165,10 @@ public class Main {
         return switch (random) {
             //TODO: Devolver un valor de WeatherCondition
             //case 0 -> ...;
-
+            case 0 -> WeatherCondition.LLUVIA;
+            case 1 -> WeatherCondition.DIA_SOLEADO;
+            case 2 -> WeatherCondition.TORMENTA_ARENA;
+            case 3 -> WeatherCondition.TORMENTA_ELECTRICA;
             default -> null;
         };
     }

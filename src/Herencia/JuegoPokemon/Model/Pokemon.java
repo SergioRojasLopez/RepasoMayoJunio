@@ -2,8 +2,8 @@ package Herencia.JuegoPokemon.Model;
 
 import Herencia.JuegoPokemon.Enum.WeatherCondition;
 import Herencia.JuegoPokemon.Exception.MuerteException;
-import Herencia.JuegoPokemon.Exception.PokemonException;
 import Herencia.JuegoPokemon.Exception.RoundStartException;
+import Herencia.JuegoPokemon.Exception.ValorNoValidoException;
 import Herencia.JuegoPokemon.Interfaces.Atacable;
 
 public abstract class Pokemon {
@@ -18,7 +18,7 @@ public abstract class Pokemon {
 
     private int salud, ataque, defensa;
 
-    public Pokemon(String nombre, int salud, int ataque, int defensa) throws PokemonException {
+    public Pokemon(String nombre, int salud, int ataque, int defensa) throws ValorNoValidoException {
         this.nombre = nombre;
         setSalud(salud);
         setAtaque(ataque);
@@ -50,16 +50,16 @@ public abstract class Pokemon {
         this.salud = salud;
     }
 
-    public void setAtaque(int ataque) throws PokemonException {
+    public void setAtaque(int ataque) throws ValorNoValidoException {
         if (ataque < ATAQUE_MIN || ataque > ATAQUE_MAX) {
-            throw new PokemonException("Valores invalidos");
+            throw new ValorNoValidoException("Valores invalidos");
         }
         this.ataque = ataque;
     }
 
-    public void setDefensa(int defensa) throws PokemonException {
+    public void setDefensa(int defensa) throws ValorNoValidoException {
         if (defensa < DEFENSA_MIN || defensa > DEFENSA_MAX){
-            throw new PokemonException("Valores invalidos");
+            throw new ValorNoValidoException("Valores invalidos");
         }
         this.defensa = defensa;
     }
