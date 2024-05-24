@@ -5,8 +5,7 @@ import Herencia.JuegoPokemon.Exception.MuerteException;
 import Herencia.JuegoPokemon.Exception.RoundStartException;
 import Herencia.JuegoPokemon.Exception.ValorNoValidoException;
 import Herencia.JuegoPokemon.Interfaces.Atacable;
-import Herencia.JuegoPokemon.Model.Pokemon;
-import Herencia.JuegoPokemon.Model.PokemonAgua;
+import Herencia.JuegoPokemon.Model.*;
 import Herencia.JuegoPokemon.Utils.UserDataCollector;
 
 import java.util.ArrayList;

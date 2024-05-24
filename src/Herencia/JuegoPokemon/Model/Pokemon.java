@@ -70,5 +70,4 @@ public abstract class Pokemon {
     public boolean estaVivo (){
         return salud > 0;
     }
-
 }

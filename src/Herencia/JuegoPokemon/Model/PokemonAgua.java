@@ -32,14 +32,15 @@ public class PokemonAgua extends Pokemon implements Atacable {
         return precisionLluvia;
     }
 
-    public void serAtacado(Pokemon pokemon, WeatherCondition weatherCondition) throws MuerteException {
-
+    @Override
+    public void atacar(Atacable atacable, WeatherCondition weatherCondition) throws MuerteException {
+        atacable.serAtacado(this,weatherCondition, (int) (getAtaque() * precisionLluvia));
 
     }
 
     @Override
-    public void atacar(Atacable atacable, WeatherCondition weatherCondition, int ataque) throws MuerteException {
-        atacable.serAtacado(this,weatherCondition,(int)(getAtaque() * precisionLluvia));
+    public void serAtacado(Pokemon pokemon, WeatherCondition weatherCondition, int ataque) throws MuerteException {
+
 
     }
 
@@ -49,13 +50,13 @@ public class PokemonAgua extends Pokemon implements Atacable {
         if (!estaVivo()) {
             return;
         }
-        if (weatherCondition == WeatherCondition.LLUVIA){
+        if (weatherCondition == WeatherCondition.LLUVIA) {
             this.setSalud(this.getSalud() + getValorHidratacion());
             this.precisionLluvia = this.precisionLluvia + Math.random();
-        }
-        else {
+        } else {
             this.precisionLluvia = 1;
         }
     }
+
 
 }
