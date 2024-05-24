@@ -6,12 +6,12 @@ import Herencia.JuegoPokemon.Exception.RoundStartException;
 import Herencia.JuegoPokemon.Exception.ValorNoValidoException;
 import Herencia.JuegoPokemon.Interfaces.Atacable;
 
-public class PokemonFuego extends Pokemon implements Atacable{
+public class PokemonFuego extends Pokemon implements Atacable {
 
     private int resistenciaAgua;
     private double bonificacionSol = 1;
 
-    public PokemonFuego(String nombre, int salud, int ataque, int defensa,int resistenciaAgua) throws ValorNoValidoException {
+    public PokemonFuego(String nombre, int salud, int ataque, int defensa, int resistenciaAgua) throws ValorNoValidoException {
         super(nombre, salud, ataque, defensa);
         setResistenciaAgua(resistenciaAgua);
     }
@@ -21,7 +21,7 @@ public class PokemonFuego extends Pokemon implements Atacable{
     }
 
     public void setResistenciaAgua(int resistenciaAgua) throws ValorNoValidoException {
-        if (resistenciaAgua < 5 || resistenciaAgua > 10){
+        if (resistenciaAgua < 5 || resistenciaAgua > 10) {
             throw new ValorNoValidoException("Valores no validos");
         }
         this.resistenciaAgua = resistenciaAgua;
@@ -30,13 +30,13 @@ public class PokemonFuego extends Pokemon implements Atacable{
 
     @Override
     public void atacar(Atacable atacable, WeatherCondition weatherCondition) throws MuerteException {
-        atacable.serAtacado(this,weatherCondition, (int) (getAtaque() * bonificacionSol));
+        atacable.serAtacado(this, weatherCondition, (int) (getAtaque() * bonificacionSol));
 
     }
+
     @Override
     public void serAtacado(Pokemon pokemon, WeatherCondition weatherCondition, int ataque) throws MuerteException {
-
-        if (pokemon instanceof PokemonAgua){
+        if (pokemon instanceof PokemonAgua) { //Preguntar a Bermudo el Lunes
             ataque = ataque - resistenciaAgua;
         }
         setSalud(getSalud() - ataque);
@@ -45,10 +45,14 @@ public class PokemonFuego extends Pokemon implements Atacable{
     @Override
     public void roundStart(WeatherCondition weatherCondition) throws RoundStartException {
 
-        if (!estaVivo()){
+        if (!estaVivo()) {
             return;
-        }if (weatherCondition == WeatherCondition.DIA_SOLEADO ){
+        }
+        if (weatherCondition == WeatherCondition.DIA_SOLEADO) {
             this.bonificacionSol = this.bonificacionSol + Math.random();
+            throw new RoundStartException(getNombre() + " tiene bonificacion de daño gracias a dia soleado");
+        } else {
+            this.bonificacionSol = 1;
         }
     }
 }
