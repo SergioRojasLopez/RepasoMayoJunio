@@ -1,7 +1,5 @@
 package Objetos.GestionGranja;
 
-import Objetos.GestionMascotas.Mascota;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,6 +31,11 @@ public class Granja {
         }else {
             System.out.println("No se pueden annadir prodcutos al inventario, cantidad insuficiente");
         }
+    }
+
+    public List<Animal> listaAnimales (){
+
+        return listaAnimales.stream().toList();
     }
     public int getCantidadProductos() {
         return cantidadProductos;

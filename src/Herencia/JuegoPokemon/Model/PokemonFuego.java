@@ -36,7 +36,7 @@ public class PokemonFuego extends Pokemon implements Atacable {
 
     @Override
     public void serAtacado(Pokemon pokemon, WeatherCondition weatherCondition, int ataque) throws MuerteException {
-        if (pokemon instanceof PokemonAgua) { //Preguntar a Bermudo el Lunes
+        if (pokemon instanceof PokemonAgua) {
             ataque = ataque - resistenciaAgua;
         }
         setSalud(getSalud() - ataque);
@@ -48,11 +48,10 @@ public class PokemonFuego extends Pokemon implements Atacable {
         if (!estaVivo()) {
             return;
         }
+        this.bonificacionSol = 1;
         if (weatherCondition == WeatherCondition.DIA_SOLEADO) {
             this.bonificacionSol = this.bonificacionSol + Math.random();
             throw new RoundStartException(getNombre() + " tiene bonificacion de daño gracias a dia soleado");
-        } else {
-            this.bonificacionSol = 1;
         }
     }
 }
