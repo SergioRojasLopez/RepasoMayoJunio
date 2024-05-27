@@ -1,5 +1,7 @@
 package Objetos.GestionGranja;
 
+import Objetos.GestionMascotas.Tienda;
+
 public class Main {
 
     public static Granja granja = new Granja("Romero Pancho",500);
@@ -8,7 +10,7 @@ public class Main {
         annadirAnimal();
         annadirAnimal();
         annadirProductoAgricola();
-        granja.getCantidadProductos();
+
 
     }
 
