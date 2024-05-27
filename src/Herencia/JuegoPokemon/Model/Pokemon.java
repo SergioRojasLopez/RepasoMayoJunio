@@ -9,12 +9,12 @@ import Herencia.JuegoPokemon.Interfaces.Atacable;
 public abstract class Pokemon {
 
     private String nombre;
-    private final int SALUD_MIN = 0;
-    private final int SALUD_MAX = 100;
-    private final int ATAQUE_MAX = 15;
-    private final int ATAQUE_MIN = 5;
-    private final int DEFENSA_MIN = 5;
-    private final int DEFENSA_MAX = 25;
+    public final int SALUD_MIN = 0;
+    public final int SALUD_MAX = 100;
+    public final int ATAQUE_MAX = 15;
+    public final int ATAQUE_MIN = 5;
+    public final int DEFENSA_MIN = 5;
+    public final int DEFENSA_MAX = 25;
 
     private int salud, ataque, defensa;
 

@@ -34,7 +34,7 @@ public class PokemonAgua extends Pokemon implements Atacable {
 
     @Override
     public void atacar(Atacable atacable, WeatherCondition weatherCondition) throws MuerteException {
-        atacable.serAtacado(this,weatherCondition, (int) (getAtaque() * precisionLluvia));
+        atacable.serAtacado(this, weatherCondition, (int) (getAtaque() * precisionLluvia));
 
     }
 
@@ -42,18 +42,18 @@ public class PokemonAgua extends Pokemon implements Atacable {
     public void serAtacado(Pokemon pokemon, WeatherCondition weatherCondition, int ataque) throws MuerteException {
 
     }
+
     @Override
     public void roundStart(WeatherCondition weatherCondition) throws RoundStartException {
 
         if (!estaVivo()) {
             return;
         }
+        this.precisionLluvia = 1;
         if (weatherCondition == WeatherCondition.LLUVIA) {
             this.setSalud(this.getSalud() + getValorHidratacion());
             this.precisionLluvia = this.precisionLluvia + Math.random();
             throw new RoundStartException(getNombre() + " tiene bonificación de daño y curación extra gracias a la lluvia");
-        } else {
-            this.precisionLluvia = 1;
         }
     }
 }
