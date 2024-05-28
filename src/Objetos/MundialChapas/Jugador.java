@@ -12,7 +12,7 @@ public class Jugador {
     public Jugador(String nombre, int edad) {
         this.nombre = nombre;
         this.edad = edad;
-        golesMarcados = new ArrayList<>();
+
     }
 
     public String getNombre() {
@@ -23,7 +23,6 @@ public class Jugador {
         return edad;
     }
 
-    public void annadirGol(Jugador jugador){
-        golesMarcados.add(jugador);
+    public void annadirGol(){
     }
 }
