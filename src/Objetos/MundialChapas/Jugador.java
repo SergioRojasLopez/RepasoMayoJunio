@@ -7,14 +7,12 @@ public class Jugador {
 
     private String nombre;
     private int edad;
-    List<Jugador> golesMarcados;
+    private int golesMarcados = 0;
 
     public Jugador(String nombre, int edad) {
         this.nombre = nombre;
         this.edad = edad;
-
     }
-
     public String getNombre() {
         return nombre;
     }
@@ -22,7 +20,10 @@ public class Jugador {
     public int getEdad() {
         return edad;
     }
-
-    public void annadirGol(){
+    public int annadirGol(){
+       return this.golesMarcados ++;
+    }
+    public int getGolesMarcados() {
+        return golesMarcados;
     }
 }

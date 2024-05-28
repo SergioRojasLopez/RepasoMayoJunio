@@ -2,7 +2,7 @@ package Objetos.SoftwareTelevisor;
 import Objetos.SoftwareTelevisor.Televisor;
 
 
-public class Principal {
+/*public class Principal {
     public static void main(String[] args) {
         Televisor televisor = new Televisor(1920, 1080, "HDMI DISPLAYPORT", "TMDS LVDS HDCP");
         String[][] imagen = Imagen.generateRandomColors(televisor.getWidth(), televisor.getHeight());
@@ -32,4 +32,4 @@ public class Principal {
             System.out.println(e.getMessage());
         }
     }
-}
+}*/

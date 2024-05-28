@@ -12,4 +12,39 @@ public class Mundial {
         this.nombre = nombre;
         listaEquipos = new ArrayList<>();
     }
+
+    public void annadirEquipo (String pais,String nombreEntrenador){
+        Equipo equipo = new Equipo(pais,nombreEntrenador);
+        listaEquipos.add(equipo);
+    }
+
+    public Equipo buscarEquipoPorPais(String pais) {
+        for (Equipo equipo : listaEquipos) {
+            if (equipo.getPais().equalsIgnoreCase(pais)) {
+                return equipo;
+            }
+        }
+        return null;
+    }
+
+    public void eliminarEquipo (Equipo equipo){
+        listaEquipos.remove(equipo);
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public List<Equipo> getListaEquipos() {
+        return listaEquipos;
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Mundial{");
+        sb.append("nombre='").append(nombre).append('\'');
+        sb.append(", listaEquipos=").append(listaEquipos);
+        sb.append('}');
+        return sb.toString();
+    }
 }
