@@ -19,12 +19,10 @@ public class Mundial {
     }
 
     public Equipo buscarEquipoPorPais(String pais) {
-        for (Equipo equipo : listaEquipos) {
-            if (equipo.getPais().equalsIgnoreCase(pais)) {
-                return equipo;
-            }
-        }
-        return null;
+       return listaEquipos.stream().
+               filter(equipo -> equipo.getPais().equalsIgnoreCase(pais))
+               .findFirst()
+               .orElse(null);
     }
 
     public void eliminarEquipo (Equipo equipo){
