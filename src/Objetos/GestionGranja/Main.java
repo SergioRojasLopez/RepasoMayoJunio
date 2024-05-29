@@ -15,7 +15,7 @@ public class Main {
         int opcion;
         do {
             menu();
-            opcion = MiEntradaSalida.leerEnteroPositivo("Elige una opcion");
+            opcion = MiEntradaSalida.leerEnteroDeRango("Elige una opcion",1,9);
             switch (opcion) {
                 case 1:
                     addAnimal();
