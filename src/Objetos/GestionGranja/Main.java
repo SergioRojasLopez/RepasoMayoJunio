@@ -1,23 +1,27 @@
 package Objetos.GestionGranja;
 
+import Objetos.GestionMascotas.Especie;
 import Objetos.GestionMascotas.Tienda;
+
+import java.util.List;
 
 public class Main {
 
-
+    private static Granja granja = new Granja("Farming Crossing");
 
     public static void main(String[] args) {
 
-        int opcion;
-        opcion = MiEntradaSalida.leerEnteroPositivo("Elige una opcion");
 
+        int opcion;
         do {
             menu();
-
-            switch (opcion){
+            opcion = MiEntradaSalida.leerEnteroPositivo("Elige una opcion");
+            switch (opcion) {
                 case 1:
+                    addAnimal();
                     break;
                 case 2:
+                    realizarChequeo();
                     break;
                 case 3:
                     break;
@@ -32,23 +36,32 @@ public class Main {
                 case 8:
                     break;
                 case 9:
-                    System.out.println("Gracias por usar el programa");
+                    System.out.println("Saliendo del programa, gracias");
                     break;
             }
 
-        }while (opcion != 4);
-
+        } while (opcion != 9);
 
 
     }
 
-    public static void annadirAnimal (){
-       Especie especie = MiEntradaSalida.leerEnum("¿Que tipo de animal vas a añadir?",Especie.values());
-       int edad = MiEntradaSalida.leerEnteroPositivo("¿Que edad tiene el animal?");
-       granja.annadirAnimales(especie,edad);
+    private static void realizarChequeo() {
+        Animal animal = MiEntradaSalida.leerEnum("¿Que animal quieres seleccionar?",granja.getListaAnimales().toArray(new Animal[0]));
+
     }
 
-    public static void menu(){
+    public static void addAnimal() {
+        EspecieAnimal especie = MiEntradaSalida.leerEnum("¿Que animal es?", EspecieAnimal.values());
+        int edad = MiEntradaSalida.leerEnteroPositivo("¿Que edad tiene el animal?");
+        try {
+            granja.annadirAnimales(especie, edad);
+        } catch (ValorNoValidoException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public static void menu() {
+        System.out.println("---------MENU---------");
         System.out.println("1. Añadir animal");
         System.out.println("2. Realizar chequeo");
         System.out.println("3. Alimentar animal");

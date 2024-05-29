@@ -1,5 +1,5 @@
 package Objetos.GestionGranja;
 
-public enum Especie {
+public enum EspecieAnimal {
     VACA,GALLINA,CERDO;
 }

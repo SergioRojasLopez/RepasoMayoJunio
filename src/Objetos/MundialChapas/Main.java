@@ -40,7 +40,7 @@ public class Main {
                     System.out.println("Saliendo del programa, gracias");
                     break;
             }
-        } while (opcion != 77);
+        } while (opcion != 7);
 
     }
 

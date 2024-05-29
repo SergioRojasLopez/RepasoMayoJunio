@@ -5,22 +5,29 @@ import java.util.List;
 
 public class Animal {
     private int id;
-    private Especie especie;
+    private EspecieAnimal especie;
     private int edad;
     private List<Alimentacion> alimentacionAnimal;
     private List<ChequeoSalud> chequeoSalud;
 
     private static int contAnimal = 1;
 
-    public Animal(Especie especie, int edad) {
+    public Animal(EspecieAnimal especie, int edad) throws ValorNoValidoException {
         this.id = contAnimal++;
         this.especie = especie;
-        this.edad = edad;
+        setEdad(edad);
         this.alimentacionAnimal = new ArrayList<>();
         this.chequeoSalud = new ArrayList<>();
     }
 
-    public Especie getEspecie() {
+    public void setEdad (int edad) throws ValorNoValidoException {
+        if (edad < 0){
+            throw new ValorNoValidoException("La edad no puede ser negativa");
+        }
+        this.edad = edad;
+    }
+
+    public EspecieAnimal getEspecie() {
         return especie;
     }
 
@@ -47,7 +54,6 @@ public class Animal {
         sb.append("id=").append(id);
         sb.append(", especie=").append(especie);
         sb.append(", edad=").append(edad);
-        sb.append(", contAnimal=").append(contAnimal);
         sb.append('}');
         return sb.toString();
     }

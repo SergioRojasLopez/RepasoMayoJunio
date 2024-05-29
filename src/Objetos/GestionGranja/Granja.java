@@ -34,18 +34,12 @@ public class Granja {
         return listaProductos.stream().filter(ProductoAgricola::isDisponible).toList();
     }
 
-    public void annadirAnimales(Especie especie, int edad) {
+    public void annadirAnimales(EspecieAnimal especie, int edad) throws ValorNoValidoException {
         Animal animal = new Animal(especie, edad);
         listaAnimales.add(animal);
     }
 
     public void annadirProcuctosAgric() {
 
-
-    }
-
-    public List<Animal> listaAnimales() {
-
-        return listaAnimales.stream().toList();
     }
 }
