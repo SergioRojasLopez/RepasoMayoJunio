@@ -23,15 +23,20 @@ public class Equipo {
         return nombreEntrenador;
     }
 
-    public void annadirJugador (Jugador jugador){
+    public void annadirJugador(Jugador jugador) {
         listaJugadores.add(jugador);
     }
-    public void eliminarJugador (Jugador jugador) throws MundialException {
-        if (!listaJugadores.isEmpty()){
+
+    public void eliminarJugador(Jugador jugador) throws MundialException {
+        if (!listaJugadores.isEmpty()) {
             listaJugadores.remove(jugador);
-        }else {
+        } else {
             throw new MundialException("La lista de jugadores esta vacia");
         }
+    }
+
+    public int golesTotales (){
+        return listaJugadores.stream().mapToInt(Jugador::getGolesMarcados).sum();
     }
 
     @Override

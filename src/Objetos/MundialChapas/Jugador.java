@@ -30,10 +30,6 @@ public class Jugador {
         return golesMarcados;
     }
 
-    public int getNumeroTotalGoles (){
-        return golesMarcados;
-    }
-
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("Jugador{");

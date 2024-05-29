@@ -30,6 +30,13 @@ public class Mundial {
         }
     }
 
+    public void mostrarGolesEquipo (){
+        listaEquipos.forEach(equipo -> {
+            int golesTotales = equipo.golesTotales();
+            System.out.println("Equipo: " + equipo.getPais() + " tienes un total de " + golesTotales + " goles");
+        });
+    }
+
     public String getNombre() {
         return nombre;
     }
