@@ -25,7 +25,6 @@ public class PokemonFuego extends Pokemon implements Atacable {
             throw new ValorNoValidoException("Valores no validos");
         }
         this.resistenciaAgua = resistenciaAgua;
-
     }
 
     @Override

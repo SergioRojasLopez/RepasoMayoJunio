@@ -2,46 +2,50 @@ package Objetos.GestionGranja;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class Granja {
 
     private String nombre;
     private List<Animal> listaAnimales;
-    private List<ProductoAgricola> inventarioProductos;
+    private List<ProductoAgricola> listaProductos;
     private List<Transaccion> listaTransacciones;
 
-    private int cantidadProductos;
-
-    public Granja(String nombre, int cantidadProductos) {
+    public Granja(String nombre) {
         this.nombre = nombre;
-        this.cantidadProductos = cantidadProductos;
         this.listaAnimales = new ArrayList<>();
-        this.inventarioProductos = new ArrayList<>();
+        this.listaProductos = new ArrayList<>();
         this.listaTransacciones = new ArrayList<>();
     }
 
-    public void annadirAnimales (Especie especie,int edad,EstadoSalud estadoSalud,String alimentacion){
-        Animal animal = new Animal(especie,edad,estadoSalud,alimentacion);
+    public String getNombre() {
+        return nombre;
+    }
+
+    public List<Animal> getListaAnimales() {
+        return listaAnimales;
+    }
+
+    public List<ProductoAgricola> getListaProductos() {
+        return listaProductos;
+    }
+
+    public List<ProductoAgricola> getProductosDisponibles (){
+        return listaProductos.stream().filter(ProductoAgricola::isDisponible).toList();
+    }
+
+    public void annadirAnimales(Especie especie, int edad) {
+        Animal animal = new Animal(especie, edad);
         listaAnimales.add(animal);
     }
-    public void annadirProcuctosAgric (String nombre,TProcuctoAgri tipoProcuctoAgri,double precio){
-        if (cantidadProductos > 0) {
-            ProductoAgricola productoAgricola = new ProductoAgricola(nombre, tipoProcuctoAgri, precio);
-            inventarioProductos.add(productoAgricola);
-        }else {
-            System.out.println("No se pueden annadir prodcutos al inventario, cantidad insuficiente");
-        }
+
+    public void annadirProcuctosAgric() {
+
+
     }
 
-    public List<Animal> listaAnimales (){
+    public List<Animal> listaAnimales() {
 
         return listaAnimales.stream().toList();
-    }
-    public int getCantidadProductos() {
-        return cantidadProductos;
-    }
-
-    public void setCantidadProductos(int cantidadProductos) {
-        this.cantidadProductos = cantidadProductos;
     }
 }
