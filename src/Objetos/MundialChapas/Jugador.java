@@ -20,10 +20,27 @@ public class Jugador {
     public int getEdad() {
         return edad;
     }
-    public int annadirGol(){
-       return this.golesMarcados ++;
+
+    public void annadirGol(){
+       golesMarcados += 1;
+        System.out.println("El jugador " + nombre + " marca un gol");
     }
+
     public int getGolesMarcados() {
         return golesMarcados;
+    }
+
+    public int getNumeroTotalGoles (){
+        return golesMarcados;
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Jugador{");
+        sb.append("nombre='").append(nombre).append('\'');
+        sb.append(", edad=").append(edad);
+        sb.append(", golesMarcados=").append(golesMarcados);
+        sb.append('}');
+        return sb.toString();
     }
 }

@@ -15,7 +15,7 @@ public class Main {
         int opcion;
         do {
             menu();
-            opcion = MiEntradaSalida.leerEnteroDeRango("Elije una opcion", 1, 7);
+            opcion = MiEntradaSalida.leerEnteroDeRango("Elije una opcion", 1, 9);
             switch (opcion) {
                 case 1:
                     annadirEquipo();
@@ -37,10 +37,18 @@ public class Main {
 
                     break;
                 case 7:
+                    eliminarEquipo();
+
+                    break;
+                case 8:
+                    eliminarJugador();
+                    break;
+                case 9:
                     System.out.println("Saliendo del programa, gracias");
                     break;
+
             }
-        } while (opcion != 7);
+        } while (opcion != 9);
 
     }
 
@@ -52,7 +60,9 @@ public class Main {
         System.out.println("4. Ver el número total de goles marcados por un jugador existente");
         System.out.println("5. Ver el equipo con más goles marcados en el mundial");
         System.out.println("6. Ver el jugador con más goles marcados en el mundial");
-        System.out.println("7. Salir");
+        System.out.println("7. Eliminar equipo");
+        System.out.println("8. Eliminar jugador");
+        System.out.println("9. Salir");
 
     }
 
@@ -69,7 +79,6 @@ public class Main {
         String equipoBuscar = MiEntradaSalida.solicitarCadena("Elige el pais que quieres añadir el jugador");
         System.out.println(equipoBuscar);
         Equipo equipo = mundial.buscarEquipoPorPais(equipoBuscar);
-
         if (equipo != null){
             String nombre = MiEntradaSalida.solicitarCadena("¿Cual es el nombre del jugador?");
             int edad = MiEntradaSalida.leerEnteroPositivo("¿Cual es la edad del jugador?");
@@ -80,5 +89,56 @@ public class Main {
             System.out.println("El pais introducido no se ha encontrado");
         }
 
+    }
+    public static void verGolesTotalesEquipoExistente (){
+
+
+    }
+
+    public static void eliminarJugador(){
+
+        if (mundial.getListaEquipos().isEmpty()){
+            System.out.println("No hay jugadores en los equipo para eliminar");
+            return;
+        }
+        mundial.getListaEquipos().forEach(System.out::println);
+        String equipoBuscar = MiEntradaSalida.solicitarCadena("De que selección quieres borrar al jugador?");
+        Equipo equipo = mundial.buscarEquipoPorPais(equipoBuscar);
+        if (equipo != null){
+            equipo.listaJugadores.forEach(System.out::println);
+            String nombreJugador = MiEntradaSalida.solicitarCadena("Que jugador quieres eliminar?");
+            Jugador jugadorAElimina = equipo.listaJugadores.stream()
+                    .filter(jugador -> jugador.getNombre().equalsIgnoreCase(nombreJugador))
+                    .findFirst()
+                    .orElse(null);
+            if (jugadorAElimina != null){
+                try {
+                    equipo.eliminarJugador(jugadorAElimina);
+                    System.out.println("El jugador " + jugadorAElimina + " se ha eliminado con exito");
+                } catch (MundialException e) {
+                    System.out.println(e.getMessage());
+                }
+            }else {
+                System.out.println("El jugador no se ha encontrado");
+            }
+        }else {
+            System.out.println("El pais introducido no se ha encontrado");
+        }
+    }
+
+    public static void eliminarEquipo (){
+        if (mundial.getListaEquipos().isEmpty()){
+            System.out.println("No hay equipos disponibles");
+            return;
+        }
+        mundial.getListaEquipos().forEach(System.out::println);
+        String equipoEliminar = MiEntradaSalida.solicitarCadena("Que selección quieres eliminar?");
+        Equipo equipo = mundial.buscarEquipoPorPais(equipoEliminar);
+        if (equipo != null){
+            mundial.eliminarEquipo(equipo);
+            System.out.println("La selección " + equipoEliminar + " se ha eliminado con exito");
+        }else {
+            System.out.println("El pais no existe");
+        }
     }
 }

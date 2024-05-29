@@ -13,20 +13,21 @@ public class Mundial {
         listaEquipos = new ArrayList<>();
     }
 
-    public void annadirEquipo (String pais,String nombreEntrenador){
-        Equipo equipo = new Equipo(pais,nombreEntrenador);
+    public void annadirEquipo(String pais, String nombreEntrenador) {
+        Equipo equipo = new Equipo(pais, nombreEntrenador);
         listaEquipos.add(equipo);
     }
 
     public Equipo buscarEquipoPorPais(String pais) {
-       return listaEquipos.stream().
-               filter(equipo -> equipo.getPais().equalsIgnoreCase(pais))
-               .findFirst()
-               .orElse(null);
+        return listaEquipos.stream().
+                filter(equipo -> equipo.getPais().equalsIgnoreCase(pais))
+                .findFirst()
+                .orElse(null);
     }
-
-    public void eliminarEquipo (Equipo equipo){
-        listaEquipos.remove(equipo);
+    public void eliminarEquipo(Equipo equipo) {
+        if (!listaEquipos.isEmpty()){
+            listaEquipos.remove(equipo);
+        }
     }
 
     public String getNombre() {

@@ -11,4 +11,11 @@ public class Alimentacion {
         this.tipoAlimentacion = tipoAlimentacion;
     }
 
+    public LocalDateTime getFechaYHora() {
+        return fechaYHora;
+    }
+
+    public TipoAlimentacion getTipoAlimentacion() {
+        return tipoAlimentacion;
+    }
 }

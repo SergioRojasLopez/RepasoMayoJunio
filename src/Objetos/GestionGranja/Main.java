@@ -48,6 +48,7 @@ public class Main {
     private static void realizarChequeo() {
         Animal animal = MiEntradaSalida.leerEnum("¿Que animal quieres seleccionar?",granja.getListaAnimales().toArray(new Animal[0]));
 
+
     }
 
     public static void addAnimal() {
@@ -58,6 +59,7 @@ public class Main {
         } catch (ValorNoValidoException e) {
             System.out.println(e.getMessage());
         }
+
     }
 
     public static void menu() {
@@ -71,5 +73,10 @@ public class Main {
         System.out.println("7. Comprar producto");
         System.out.println("8. Listar productos");
         System.out.println("9. Salir");
+    }
+
+    public static void elegirIdAnimal (){
+        List<Animal> animales = granja.getListaAnimales();
+
     }
 }

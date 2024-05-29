@@ -10,4 +10,12 @@ public class ChequeoSalud {
         this.fechaYHora =  LocalDateTime.now();
         this.estadoSalud = estadoSalud;
     }
+
+    public LocalDateTime getFechaYHora() {
+        return fechaYHora;
+    }
+
+    public EstadoSalud getEstadoSalud() {
+        return estadoSalud;
+    }
 }

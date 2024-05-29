@@ -39,6 +39,16 @@ public class Granja {
         listaAnimales.add(animal);
     }
 
+    public void chequearEstadoAnimal (EstadoSalud estadoSalud,int idAnimal){
+        listaAnimales.get(--idAnimal).registroChequeoSalud(estadoSalud);
+    }
+
+    public void alimentarAnimal (TipoAlimentacion tipoAlimentacion,int idAnimal){
+        listaAnimales.get(--idAnimal).registroAlimentacion(tipoAlimentacion);
+    }
+
+
+
     public void annadirProcuctosAgric() {
 
     }

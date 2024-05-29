@@ -8,8 +8,6 @@ public class Equipo {
     private String pais;
     private String nombreEntrenador;
     List<Jugador> listaJugadores;
-    /*Jugador jugador;
-    Jugador jugador1;*/
 
     public Equipo(String pais, String nombreEntrenador) {
         this.pais = pais;

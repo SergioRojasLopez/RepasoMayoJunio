@@ -41,12 +41,21 @@ public class Animal {
 
     public void registroAlimentacion (TipoAlimentacion tipoAlimentacion){
         alimentacionAnimal.add(new Alimentacion(tipoAlimentacion));
-
     }
 
     public void registroChequeoSalud (EstadoSalud estadoSalud){
         chequeoSalud.add(new ChequeoSalud(estadoSalud));
     }
+
+    public EstadoSalud saludAnimal (){
+        if (chequeoSalud.isEmpty()) return null;
+        return chequeoSalud.get(chequeoSalud.size()-1).getEstadoSalud();
+    }
+
+    public TipoAlimentacion alimentacionAni (){
+        if (alimentacionAnimal.isEmpty()) return null;
+        return alimentacionAnimal.get(alimentacionAnimal.size() - 1).getTipoAlimentacion();
+     }
 
     @Override
     public String toString() {
