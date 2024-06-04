@@ -104,20 +104,19 @@ public class Principal {
                     int opcion1_c5 = UserDataCollector.getEnteroMinMax("Selecciona un juguete", 1, numJuguetes);
                     Juguete j1_c5 = juguetes[opcion1_c5 - 1];
 
-
                     if (!(j1_c5 instanceof Apilable)){
                         System.out.println("El juguete no es apilable");
                         continue;
                     }
 
-                        System.out.println("Selecciona con que juguete lo quieres apilar");
+                        System.out.println("Selecciona con cuál juguete lo quieres apilar");
                         mostrarJuguetes();
                         int opcion1_c6 = UserDataCollector.getEnteroMinMax("Selecciona un juguete", 1, numJuguetes);
                         Juguete j1_c6 = juguetes[opcion1_c6 - 1];
-                        System.out.println("El juguete " + j1_c5.getNombre() + " se apilado con el juguete " + j1_c6.getNombre());
 
                         try {
                             ((Apilable)j1_c6).apilar(j1_c5);
+                            System.out.println("El juguete " + j1_c5.getNombre() + " se apilado con el juguete " + j1_c6.getNombre());
                         } catch (JugueteException jugueteException) {
                             System.out.println(jugueteException.getMessage());
                     }
@@ -139,7 +138,7 @@ public class Principal {
 
     public static void mostrarJuguetes() {
         for (int i = 0; i < juguetes.length; i++) {
-            System.out.println(juguetes[i]);
+            System.out.println( i+1 + ": " +juguetes[i]);
         }
     }
 
