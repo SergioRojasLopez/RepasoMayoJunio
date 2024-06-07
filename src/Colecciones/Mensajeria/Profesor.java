@@ -1,10 +1,6 @@
 package Colecciones.Mensajeria;
 public class Profesor extends Persona {
-
-
-
 	private int antiguedad;
-	
 
 	public Profesor(String dni, String nombre, int edad) throws IESException {
 		super(dni, nombre, edad);
@@ -12,19 +8,15 @@ public class Profesor extends Persona {
 	
 	}
 
-
 	public Profesor(String dni, String nombre, int edad, int antiguedad) throws IESException {
 		super(dni, nombre, edad);
 		setAntiguedad(antiguedad);
-	
-		
-	}
 
+	}
 
 	public int getAntiguedad() {
 		return antiguedad;
 	}
-
 
 	private void setAntiguedad(int antiguedad) throws IESException {
 		if (antiguedad < 0)
@@ -36,15 +28,9 @@ public class Profesor extends Persona {
 		antiguedad++;
 	}
 
-
 	@Override
 	public String toString() {
 		return "Profesor " + super.toString() + " Antigüedad: " + antiguedad + " años";
 	}
-	
-	
 
-	
-	
-	
 }

@@ -3,8 +3,6 @@ package Colecciones.Mensajeria;
 public class Principal {
 
 	public static void main(String[] args) {
-		
-		
 		try {
 			Profesor profesor1=new Profesor("11", "Pepe", 30);
 			Profesor profesor2=new Profesor("12", "Pepa", 32);

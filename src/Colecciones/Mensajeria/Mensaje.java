@@ -11,7 +11,7 @@ public class Mensaje  {
 		super();
 		this.remitente = remitente;
 		this.texto = texto;
-		hora=LocalDateTime.now();
+		hora = LocalDateTime.now();
 	}
 
 	public Persona getRemitente() {
@@ -33,14 +33,5 @@ public class Mensaje  {
 		DateTimeFormatter df = DateTimeFormatter.ofPattern("dd-MM-uuuu hh:mm");
 		return "Mensaje De: " + remitente.getNombre() + " Texto: " + texto + ", Fecha " + df.format( hora );
 	}
-
-	
-	
-	
-	
-	
-	
-	
-	
 	
 }

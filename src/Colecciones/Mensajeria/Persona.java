@@ -10,13 +10,13 @@ public abstract class Persona {
 	private String dni;
 	private String nombre;
 	private int edad;
-	private LinkedList<Mensaje> mensajes;
+	private LinkedList<Mensaje> bandejaEntrada;
 	
 	// Constructor
 	public Persona(String dni,String nombre,int edad) throws IESException {
 		this.dni=dni;
 		this.nombre = nombre;
-		mensajes=new LinkedList<Mensaje>();
+		bandejaEntrada = new LinkedList<>();
 		setEdad(edad);
 	}
 
@@ -75,8 +75,7 @@ public abstract class Persona {
 	}
 		
 	public void enviarCorreo(String msg, Persona personaDestinatario) throws IESException{
-		
-		
+		personaDestinatario.bandejaEntrada.add(new Mensaje(this,msg));
 	}
 	
 	/**

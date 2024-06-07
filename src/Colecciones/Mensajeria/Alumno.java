@@ -1,9 +1,6 @@
 package Colecciones.Mensajeria;
 
 public class Alumno extends Persona{
-
-
-	
 	private static final int CURSO_MAX_BACHILLERATO = 2;
 	private static final int CURSO_MIN_BACHILLERATO = 1;
 	private static final int CURSO_MIN_CICLO = 1;
@@ -14,15 +11,13 @@ public class Alumno extends Persona{
 	
 	private TipoEnsennanza ensennanza;
 	private int curso;
-	
-	
+
 	public Alumno(String dni, String nombre, int edad, TipoEnsennanza ensennanza, int curso) throws IESException {
 		super(dni, nombre, edad);
 		this.ensennanza=ensennanza;
 		setCurso(curso);
 	
 	}
-
 
 	public TipoEnsennanza getEnsennanza() {
 		return ensennanza;
@@ -61,13 +56,5 @@ public class Alumno extends Persona{
 
 	public void enviarCorreo(String msg, Persona personaDestinatario) throws IESException{
 		
-		
-		
 	}
-	
-	
-	
-	
-	
-	
 }
