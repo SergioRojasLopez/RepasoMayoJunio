@@ -138,7 +138,7 @@ public class Principal {
 
     public static void mostrarJuguetes() {
         for (int i = 0; i < juguetes.length; i++) {
-            System.out.println( i+1 + ": " +juguetes[i]);
+            System.out.println(i + 1 + ": " +juguetes[i]);
         }
     }
 
