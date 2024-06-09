@@ -1,4 +1,5 @@
 package Colecciones.Mensajeria;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.stream.Stream;
 
@@ -85,7 +86,10 @@ public abstract class Persona {
 	 */
 	
 	public String mostrarMensajes() throws IESException{
-		return null;
+		if (bandejaEntrada.isEmpty()){
+			throw new IESException("La bandeja esta vacia");
+		}
+		return bandejaEntrada.toString();
 	}
 	
 	/**
@@ -94,17 +98,23 @@ public abstract class Persona {
 	 * @throws IESException 
 	 */
 	public void borrarMensaje( int numeroMensaje) throws IESException{
-	
-		
+		Iterator<Mensaje> it = bandejaEntrada.iterator();
+		int contador = 0;
+		while (it.hasNext()){
+			it.next();
+			if (contador == numeroMensaje){
+				it.remove();
+			}
+			contador++;
+		}
 	}
-	
-	
+
 	public String mostrarMensajesOrdenados()throws IESException{
 		return null;
-	}	
-	
-	
+	}
+
 	public String buscarMensajesConTexto( String texto) throws IESException{
 		return null;
+
 	}
 }

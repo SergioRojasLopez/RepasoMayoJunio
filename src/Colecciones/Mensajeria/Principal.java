@@ -10,7 +10,10 @@ public class Principal {
 			profesor1.enviarCorreo("Hola hola", profesor2);
 			profesor1.enviarCorreo("Adios", profesor2);
 			
-			System.out.println(profesor1.mostrarMensajesOrdenados());
+			System.out.println(profesor2.mostrarMensajes());
+			profesor2.borrarMensaje(0);
+			System.out.println(profesor2.mostrarMensajes());
+
 		} catch (IESException e) {
 			System.out.println(e.getMessage());
 		}
