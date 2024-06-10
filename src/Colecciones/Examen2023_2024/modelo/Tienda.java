@@ -3,6 +3,8 @@ package Colecciones.Examen2023_2024.modelo;
 
 import Colecciones.Examen2023_2024.excepciones.TiendaException;
 
+import java.time.LocalDate;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -80,7 +82,7 @@ public class Tienda {
      */
     public List<Producto> getTodosLosProductosOrdenadosPorPrecio() {
 
-        return conjuntoCategorias.stream().flatMap(categoria -> categoria.getProductos().stream()).distinct().sorted((a,b)-> Double.compare(a.getPrecio(),b.getPrecio())).toList();
+        return conjuntoCategorias.stream().flatMap(categoria -> categoria.getProductos().stream()).distinct().sorted(Comparator.comparingDouble(Producto::getPrecio)).toList();
 
     }
 
@@ -91,6 +93,12 @@ public class Tienda {
      * @return true si el producto aparecía en alguna categoría
      */
     public boolean eliminaProducto(Producto p) {
+        boolean eliminado = false;
+
+        for (Categoria categoria : categoriasDeProducto(p)){
+            if (categoria.borrarProducto(p)) eliminado = true;
+        }
+        return eliminado;
 
     }
 
@@ -100,6 +108,9 @@ public class Tienda {
      * @return
      */
     public Set<Producto> productosUltimoAnno() {
+        LocalDate limiteAnno = LocalDate.now().minusYears(1);
+
+        return getTodosLosProductosOrdenadosPorPrecio().stream().filter(a -> limiteAnno.isBefore(a.getFechaIncorporacion())).collect(Collectors.toSet());
 
 
     }
