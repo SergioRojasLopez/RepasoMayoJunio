@@ -30,15 +30,23 @@ public class PokemonFuego extends Pokemon implements Atacable {
     @Override
     public void atacar(Atacable atacable, WeatherCondition weatherCondition) throws MuerteException {
         atacable.serAtacado(this, weatherCondition, (int) (getAtaque() * bonificacionSol));
-
     }
 
     @Override
     public void serAtacado(Pokemon pokemon, WeatherCondition weatherCondition, int ataque) throws MuerteException {
         if (pokemon instanceof PokemonAgua) {
+            if (ataque - resistenciaAgua < 0) {
+                return;
+            }
             ataque = ataque - resistenciaAgua;
         }
-        setSalud(getSalud() - ataque);
+        if (ataque < 0) {
+            return;
+        }
+
+        int danio = (ataque * (1 - getDefensa() / 100));
+        this.setSalud(this.getSalud() - danio);
+
     }
 
     @Override

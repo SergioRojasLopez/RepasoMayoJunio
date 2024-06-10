@@ -45,7 +45,7 @@ public class Categoria {
         if (this == object) return true;
         if (object == null || getClass() != object.getClass()) return false;
         Categoria categoria = (Categoria) object;
-        return Objects.equals(nombre, categoria.nombre) && Objects.equals(productos, categoria.productos);
+        return Objects.equals(nombre, categoria.nombre);
     }
 
     @Override

@@ -55,5 +55,6 @@ public class PokemonAgua extends Pokemon implements Atacable {
             this.precisionLluvia = this.precisionLluvia + Math.random();
             throw new RoundStartException(getNombre() + " tiene bonificación de daño y curación extra gracias a la lluvia");
         }
+
     }
 }

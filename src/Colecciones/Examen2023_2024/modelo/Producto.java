@@ -57,7 +57,7 @@ public class Producto {
         if (this == object) return true;
         if (object == null || getClass() != object.getClass()) return false;
         Producto producto = (Producto) object;
-        return Double.compare(precio, producto.precio) == 0 && stock == producto.stock && Objects.equals(marca, producto.marca) && Objects.equals(modelo, producto.modelo) && Objects.equals(descripcion, producto.descripcion) && Objects.equals(fechaIncorporacion, producto.fechaIncorporacion);
+        return Objects.equals(marca, producto.marca) && Objects.equals(modelo, producto.modelo);
     }
 
     @Override
