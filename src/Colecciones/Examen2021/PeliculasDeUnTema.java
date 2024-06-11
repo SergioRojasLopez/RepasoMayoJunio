@@ -47,6 +47,7 @@ public class PeliculasDeUnTema {
     }
 
     public void annadirOpinionAPelicula(String tituloPelicula, Opinion opinion) throws NetPleaseException {
+
        for (Pelicula pelicula : listaPeliculasDeUnTema) {
            if (!listaPeliculasDeUnTema.contains(tituloPelicula)) {
                throw new NetPleaseException("La pelicula no esta");

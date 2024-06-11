@@ -26,11 +26,13 @@ public class Principal {
 			netPlease.temaDePelicula("BAJO EL MISMO TECHO");
 			netPlease.borrarPeliculaDeUnTema("DRAMA","TITANIC");
 
+			Opinion opinion = new Opinion(8,"Buenisima");
+			Opinion opinion2 = new Opinion(9,"Buenisimassss");
 			peliculasDeUnTema.buscarPeliculaPorTitulo("HARRY POTTER");
-			peliculasDeUnTema.annadirOpinionAPelicula("HARRY POTTER", new Opinion(7,"Fantastica"));
+			peliculasDeUnTema.annadirOpinionAPelicula("HARRY POTTER", opinion);
+			peliculasDeUnTema.annadirOpinionAPelicula("HARRY POTTER", opinion2);
 			netPlease.listadoDeTodasPeliculasDeTodosLosTemas();
 
-			System.out.println(peliculasDeUnTema.getListaPeliculasDeUnTema().size());
 
 		} catch (NetPleaseException e) {
 			System.err.println(e.getMessage());
