@@ -43,17 +43,19 @@ public class GranAlmacen {
 	
 	public String nuevoCliente() throws CajaException{
 		
-		
+		return null;
 	}
 
 	public int atenderCliente(int numeroCaja) throws CajaException{
-		
-		
+
+		return 0;
 		
 	}
-	
+
 	public String toString(){
-	
+
+		return "";
+
 	}
 
 	/** 
@@ -63,7 +65,7 @@ public class GranAlmacen {
 	 */
 	
 	private int cajaMenosCliente() throws CajaException {
-		
+		return 0;
 	}
 
 	

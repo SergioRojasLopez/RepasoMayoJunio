@@ -22,15 +22,15 @@ public class Recetario {
 
     public String listadoRecetasOrdenadasAlfabeticamente() throws RecetaException {
 
-        if (listaRecetas.isEmpty()) throw new RecetaException("El recetario esta vacio");
+        if (listaRecetas.isEmpty())
+            throw new RecetaException("El recetario esta vacio");
         return listaRecetas.values().stream().sorted(Comparator.comparing(Receta::getNombreReceta)).toString();
-
     }
 
     public String listadoRecetasConIngredienteOrdenadasPorTiempoPreparacion(String ingrediente) throws RecetaException {
 
-        if (listaRecetas.isEmpty()) throw new RecetaException("El recetario esta vacio");
+        if (listaRecetas.isEmpty())
+            throw new RecetaException("El recetario esta vacio");
         return listaRecetas.values().stream().sorted(Comparator.comparing(Receta::getMinutosDePreparacion)).toString();
-
     }
 }

@@ -37,17 +37,20 @@ public class Liga {
                 e1.addJugador(jugador);
             }
         }
-
     }
 
     public List<Jugador> jugadoresEnComun(Equipo e1, Equipo e2) throws LigaException {
-
         if (!listaEquipo.contains(e1)|| !listaEquipo.contains(e2)) {
             throw new LigaException("Los equipos no estan en la liga");
         }
-        List<Jugador> jugadoresComunes = new LinkedList<Jugador>(e2.getJugadores());
+       /* List<Jugador> jugadoresComunes = new LinkedList<Jugador>(e2.getJugadores());
         jugadoresComunes.retainAll(e1.getJugadores());
         return jugadoresComunes;
+        */
+
+        Set<Jugador> jugadorsComunes = new HashSet<>(e2.getJugadores());
+        jugadorsComunes.retainAll(e1.getJugadores());
+        return jugadorsComunes.stream().toList();
     }
 
     public double mediaEdad() throws LigaException {
@@ -85,8 +88,6 @@ public class Liga {
         for (Equipo e : listaEquipo) {
             sb.append(e).append(System.lineSeparator());
         }
-
         return sb.toString();
-
     }
 }
