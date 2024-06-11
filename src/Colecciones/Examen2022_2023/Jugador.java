@@ -10,6 +10,8 @@ public class Jugador {
     private TDemarcacion demarcacion;
     private LocalDate fechaNacimiento;
     private String paisNacimiento;
+    private double edad;
+
 
 
     public Jugador(String nombre, TDemarcacion demarcacion, LocalDate fechaNacimiento, String paisNacimiento) {
@@ -18,6 +20,7 @@ public class Jugador {
         this.demarcacion = demarcacion;
         this.fechaNacimiento = fechaNacimiento;
         this.paisNacimiento = paisNacimiento;
+
     }
 
     public String getNombre() {
@@ -38,11 +41,7 @@ public class Jugador {
     }
 
     public double getEdad() {
-        LocalDate fechaActual = LocalDate.now();
-        Period periodo = Period.between(fechaNacimiento,
-                fechaActual);
-        int edad = periodo.getYears();
-        return edad;
+        return Period.between(fechaNacimiento,LocalDate.now()).getYears();
     }
 
     @Override
@@ -52,7 +51,6 @@ public class Jugador {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         sb.append(fechaNacimiento.format(formatter)).append(". ")
                 .append(demarcacion).append(" (").append(paisNacimiento).append(")");
-
         return sb.toString();
 
     }

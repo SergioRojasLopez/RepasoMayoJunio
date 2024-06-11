@@ -14,11 +14,10 @@ public class Liga {
 
     public void addEquipo(Equipo e) throws LigaException {
         if (listaEquipo.isEmpty() || listaEquipo.contains(e)) {
-            throw new LigaException("El equipo esta vacio o ya contiene el jugador");
+            throw new LigaException("El equipo esta vacio o ya contiene el equipo");
         }
         listaEquipo.add(e);
     }
-
     public void eliminaEquipo(Equipo e) throws LigaException {
         if (listaEquipo.isEmpty()){
             throw new LigaException("La lista esta vacia");
@@ -28,10 +27,8 @@ public class Liga {
 
 
     public void unirEquipos(Equipo e1, Equipo e2) throws LigaException {
-
         if (!listaEquipo.contains(e1)|| !listaEquipo.contains(e2)){
             throw new LigaException("Los equipos no estan en la liga");
-
         }else {
             for (Jugador jugador : e2.getJugadores()) {
                 e1.addJugador(jugador);
@@ -57,17 +54,13 @@ public class Liga {
 
     return todosLosJugadores().stream().mapToDouble(Jugador::getEdad).average()
             .orElseThrow(LigaException::new);
-
     }
 
     public List<Jugador> jugadoresOrdenadosEdad() {
-        return todosLosJugadores().stream().sorted((j1,j2)-> j2.getFechaNacimiento().compareTo(j1.getFechaNacimiento()))
-                .toList();
+        return listaEquipo.stream().flatMap(equipo -> equipo.getJugadores().stream()).sorted((e1,e2)-> (int) (e1.getEdad() - e2.getEdad())).toList();
     }
-
     public List<Jugador> jugadoresOrdenadosNombre() {
-        return todosLosJugadores().stream().sorted().toList();
-
+        return listaEquipo.stream().flatMap(equipo -> equipo.getJugadores().stream()).sorted(Comparator.comparing(Jugador::getNombre)).toList();
     }
 
     private Set<Jugador> todosLosJugadores() {
