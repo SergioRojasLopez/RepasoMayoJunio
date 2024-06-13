@@ -1,4 +1,4 @@
-package Ficheros;
+package Ficheros.Ej2;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -53,8 +53,9 @@ public class Ej2 {
             throw new RuntimeException(e);
         }
         //lecturas de ficheros
-        //recorridos directorios
+        //recorrido directorios
         //Expresiones regulares
         //Creacion de ficheros
+        //
     }
 }
