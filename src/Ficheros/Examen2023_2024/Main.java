@@ -12,7 +12,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
-
 public class Main {
     /**
      * Puedes utilizar indistintamente java.io o java.nio para resolver los ejercicios.
@@ -135,7 +134,6 @@ public class Main {
                                     } catch (NioException e) {
                                         System.out.println(e.getMessage());
                                     }
-
                                     try {
                                         AyudasNIO.crearFichero(rutaSalidaF.resolve(palabras.toLowerCase() + ".txt"), false);
                                     } catch (NioException e) {
@@ -143,20 +141,17 @@ public class Main {
                                     }
                                 });
                     });
-
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
 
-
     }
-
 
     public static void main(String[] args) {
         File file = new File("C:\\Users\\sergi\\IdeaProjects\\RepasoMayoJunio\\src\\Ficheros\\Examen2023_2024\\quijote.txt");
         ejercicio1(file);
         ejercicio2(file);
-        ejercicio4(file);
+        ejercicio3_2(file);
 
     }
 
@@ -222,6 +217,7 @@ public class Main {
             throw new RuntimeException(e);
         }
     }
+
     public static void ejercicio3(File file) {
         if (!file.exists() || !file.isFile()) {
             System.out.println("No es un fichero o no existe");
@@ -230,11 +226,11 @@ public class Main {
         File rutaSalida = new File("C:\\Users\\sergi\\IdeaProjects\\RepasoMayoJunio\\src\\Ficheros\\Examen2023_2024");
 
         if (!rutaSalida.exists()) {
-            if (!rutaSalida.mkdirs()){
+            if (!rutaSalida.mkdirs()) {
                 System.out.println("No es un directorio");
                 return;
             }
-        }else if (!rutaSalida.isDirectory()){
+        } else if (!rutaSalida.isDirectory()) {
             System.out.println("La ruta de salida no es un directorio");
             return;
         }
@@ -243,26 +239,26 @@ public class Main {
 
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             String linea;
-            Map<String,List<String>> palabrasPorLetras = new HashMap<>();
+            Map<String, List<String>> palabrasPorLetras = new HashMap<>();
             while ((linea = br.readLine()) != null) {
                 Matcher matcher = patron.matcher(linea);
                 while (matcher.find()) {
                     String palabra = matcher.group().toLowerCase();
-                    String letraInicial = palabra.substring(0,1);
-                    palabrasPorLetras.computeIfAbsent(letraInicial,k->new ArrayList<>()).add(palabra);
+                    String letraInicial = palabra.substring(0, 1);
+                    palabrasPorLetras.computeIfAbsent(letraInicial, k -> new ArrayList<>()).add(palabra);
                 }
             }
-            for (Map.Entry<String,List<String>> entry : palabrasPorLetras.entrySet()){
+            for (Map.Entry<String, List<String>> entry : palabrasPorLetras.entrySet()) {
                 String letra = entry.getKey();
-                File directorioLetra = new File(rutaSalida,letra);
-                if (!directorioLetra.mkdir()){
+                File directorioLetra = new File(rutaSalida, letra);
+                if (!directorioLetra.mkdir()) {
                     System.out.println("No se pudo crear directorio para la letra" + letra);
                     continue;
                 }
-                
-                for (String palabra : entry.getValue()){
-                    File ficheroPalabras = new File(directorioLetra,palabra + ".txt");
-                    try(BufferedWriter bw = new BufferedWriter(new FileWriter(ficheroPalabras))) {
+
+                for (String palabra : entry.getValue()) {
+                    File ficheroPalabras = new File(directorioLetra, palabra + ".txt");
+                    try (BufferedWriter bw = new BufferedWriter(new FileWriter(ficheroPalabras))) {
                         bw.write(palabra);
                     }
                 }
@@ -273,7 +269,8 @@ public class Main {
             throw new RuntimeException(e);
         }
     }
-    public static void ejercicio4 (File file){
+
+    public static void ejercicio3_2(File file) {
         // Verificar si el archivo existe y es válido
         if (!file.exists() || !file.isFile()) {
             System.out.println("No es un fichero o no existe");
