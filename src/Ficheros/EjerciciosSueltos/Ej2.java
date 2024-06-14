@@ -1,4 +1,4 @@
-package Ficheros.Ej2;
+package Ficheros.EjerciciosSueltos;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -11,8 +11,12 @@ import java.util.stream.Stream;
 public class Ej2 {
     public static void main(String[] args) {
 
-        Path fichero = Paths.get("C:\\Users\\Alumno\\IdeaProjects\\RepasoMayoJunio\\src\\Ficheros\\Ej2.txt");
-        Pattern matriculaValida = Pattern.compile("(\\d{4}[B-Z&&[^EIOU]]{3})", Pattern.CASE_INSENSITIVE);
+        /**
+         * Con Java NIO, lectura del contenido de fichero y por cada match de linea valida imprimimos las matriculas validas
+         */
+
+        Path fichero = Paths.get("./src/Ficheros/EjerciciosSueltos/Ej2.txt");
+        Pattern matriculaValida = Pattern.compile("(\\d{4}[B-Z&&[^EIOU]]{3})");
         Pattern lineaValida = Pattern.compile(".*[;:]$");
 
         try (Stream<String> flujo = Files.lines(fichero)){
@@ -28,14 +32,13 @@ public class Ej2 {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
     }
 
     public static void main2(String[] args) {
-        try (BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\Alumno\\IdeaProjects\\RepasoMayoJunio\\src\\Ficheros\\Ej2.txt"))){
+        try (BufferedReader br = new BufferedReader(new FileReader("./src/Ficheros/EjerciciosSueltos/Ej2.txt"))){
             String linea;
-            Pattern lineaValida = Pattern.compile(".*[;:]$");
-            Pattern matriculaValida = Pattern.compile("(\\d{4}[B-Z&&[^EIOU]]{3})", Pattern.CASE_INSENSITIVE);
+            Pattern lineaValida = Pattern.compile(".*[;:]$"); //Patron para buscar lineas que acaben por ; o :
+            Pattern matriculaValida = Pattern.compile("(\\d{4}[B-Z&&[^EIOU]]{3})"); //Patron para buscar matriculas correctas
 
             while ((linea = br.readLine()) != null) {
                 Matcher mLineaValida = lineaValida.matcher(linea);
@@ -56,6 +59,5 @@ public class Ej2 {
         //recorrido directorios
         //Expresiones regulares
         //Creacion de ficheros
-        //
     }
 }

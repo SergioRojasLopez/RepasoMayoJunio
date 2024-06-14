@@ -1,0 +1,22 @@
+copiar texto copiado exam examen texto bla bla bla
+texto copiado examen examen texto bla bla bla
+text copiado examen examen texto bla bla bla
+texto copiado examen examen texto bla bla bla
+texto copiado examen examen texto bla bla bla
+texto copiado examen examen texto bla bla bla
+texto copiado examen examen texto bla bla bla
+texto copiable examen examen texto bla bla bla
+texto copiado examen examen texto bla bla bla
+texto copiado examen examen texto bla bla bla
+copiar COPiar COPiar copIar cOpIar copIaR
+texto copiado exam examen texto bla bla bla
+texto copiado examen examen texto bla bla bla
+text copiado examen examen texto bla bla bla
+texto copiado examen examen texto bla bla bla
+texto copiado examen examen texto bla bla bla
+texto copiado examen examen texto bla bla bla
+texto copiado examen examen texto bla bla bla
+texto copiable examen examen texto bla bla bla
+texto copiado examen examen texto bla bla bla
+texto copiado examen examen texto bla bla bla
+copiar COPiar COPiar copIar cOpIar copIaR

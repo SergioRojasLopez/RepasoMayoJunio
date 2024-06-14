@@ -101,7 +101,6 @@ public class Main {
     public static void mostrarFicherosEnCarpeta() {
         String nombreDirectorio = MiEntradaSalida.solicitarCadena("Nombre del directorio a enseñar");
         Path ruta = Paths.get("C:\\Users\\sergi\\IdeaProjects\\RepasoMayoJunio\\src\\Ficheros " + nombreDirectorio);
-
         if (Files.exists(ruta)) {
             try(Stream<Path> ficheros = Files.list(ruta)) {
                 ficheros.filter(Files::isRegularFile).forEach(System.out::println);
