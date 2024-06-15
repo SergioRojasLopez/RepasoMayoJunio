@@ -1,0 +1,22 @@
+-------------------- EXPRESIONES REGULARES ---------------------------
+
+ CORRE0 ELECTRÓNICO -> [a-zA-Z0-9._]+@[a-zA-Z0-9_]+[.][a-zA-Z]{2,5}
+
+ NÚMERO DE TELEFONO -> \b([\d]{9})+\b
+
+ FECHAS FORMATO DD/MM/YYYY -> \b([10][0-9]|[12][0-9]{2})\/([0-2]{2})\/([0-9]{4})\b
+
+ DIRECCION IP ->
+
+ URL VALIDA -> \b(https?):\/\/(www\.)?([a-zA-Z0-9-]+)\.([a-zA-Z0-9]{2,5})*\b
+
+ CODIGO POSTAL -> \b[0-9]{5}\b
+
+ PALABRAS MAYUSCULAS -> \b([\p{Upper}]+)\b
+
+ PALABRAS EMPIEZAN Y TERMINAN VOCAL -> \b([aáeéiíoóuúAÁEÉIÍOÓUÚ]{1})(\p{L}*)([aáeéiíoóuúAÁEÉIÍOÓUÚ]{1})\b
+
+ PALABRAS EXTENSION .JPG .PNG .GIF -> \b((\p{L}+)\.(txt|png|gif)*)\b
+
+
+
