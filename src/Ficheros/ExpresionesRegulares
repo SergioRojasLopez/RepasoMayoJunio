@@ -13,6 +13,7 @@
  CODIGO POSTAL -> \b[0-9]{5}\b
 
  PALABRAS MAYUSCULAS -> \b([\p{Upper}]+)\b
+                     -> \b([\p{Upper}ÁÉÍÓÚ])([a-záéíóú]+)\b
 
  PALABRAS EMPIEZAN Y TERMINAN VOCAL -> \b([aáeéiíoóuúAÁEÉIÍOÓUÚ]{1})(\p{L}*)([aáeéiíoóuúAÁEÉIÍOÓUÚ]{1})\b
 
