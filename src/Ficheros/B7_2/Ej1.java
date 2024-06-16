@@ -6,8 +6,8 @@ import java.util.regex.Pattern;
 
 public class Ej1 {
     public static void main(String[] args) {
-        File file = new File("./src/Ficheros/B7_2/Ej1.txt");
 
+        File file = new File("./src/Ficheros/B7_2/Ej1.txt");
         if (!file.exists()){
             System.out.println("El fichero no existe");
             return;
