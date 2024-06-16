@@ -1,4 +1,4 @@
-package Ficheros.B7_2;
+package Ficheros.MenuFich;
 
 import Objetos.GestionGranja.MiEntradaSalida;
 
@@ -39,7 +39,6 @@ public class Main {
             }
 
         } while (opcion != 5);
-
     }
 
     public static void menu() {
@@ -109,5 +108,4 @@ public class Main {
             }
         }
     }
-
 }
