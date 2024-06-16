@@ -14,7 +14,7 @@ public class Ej1 {
         }
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(file))) {
             String linea;
-            Pattern patron = Pattern.compile("[\\p{L}]+");
+            Pattern patron = Pattern.compile("\\p{L}");
             int count = 0;
             while ((linea = bufferedReader.readLine()) != null) {
                 Matcher matcher = patron.matcher(linea);
