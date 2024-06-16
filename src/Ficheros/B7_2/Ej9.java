@@ -20,11 +20,9 @@ public class Ej9 {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
     }
 
     public static void escribirLineasOrdenadas(File file, List<String> lineas) {
-
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(file))) {
             for (String linea : lineas) {
                 bw.write(linea);

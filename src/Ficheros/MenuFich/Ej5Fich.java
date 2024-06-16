@@ -11,7 +11,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.stream.Stream;
 
-public class Main {
+public class Ej5Fich {
     public static void main(String[] args) {
 
         int opcion;
